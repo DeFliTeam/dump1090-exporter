@@ -27,6 +27,7 @@ scrape_configs:
         targets: ['192.168.1.201:9105']
 
 remote_write:
+
   - url: '<https://prometheus-prod-13-prod-us-east-0.grafana.net/api/prom/push>'
     basic_auth:
       username: '1463871'
