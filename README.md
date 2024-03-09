@@ -34,6 +34,10 @@ remote_write:
 
 ```
 
+```bash
+./prometheus --config.file=./prometheus.yml
+```
+
 Then move on to the dump1090 exporter
 
 
