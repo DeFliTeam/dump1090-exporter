@@ -103,7 +103,55 @@ file system location.
 
 In the example command the exporter is instructed to monitor a dump1090
 instance running on a machine with the IP address 192.168.1.201 using the port
-8080.
+8080. 
+
+**To run as a service** 
+
+```bash
+sudo nano /etc/systemd/system/dumpexp.service
+```
+***Paste in the below, editing for your own details*** 
+
+```bash
+Description=RUN_DUMP1090EX
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+ExecStart= dump1090exporter \
+  --resource-path=http://192.168.1.201:8080/data \
+  --port=9105 \
+  --latitude=-34.9285 \
+  --longitude=138.6007 \
+  --log-level info
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+```
+```bash
+sudo systemctl daemon-reload
+```
+
+```bash
+sudo systemctl enable dumpexp
+```
+
+```bash
+sudo systemctl start dumpexp
+```
+
+```bash
+systemctl status dumpexp
+```
+
+```bash
+sudo reboot
+```
 
 The dump1090exporter can also monitor dump1090 state via the file system if
 you run it on the same machine as the dump1090 process. In this scenario you
