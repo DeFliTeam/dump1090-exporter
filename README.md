@@ -1,3 +1,42 @@
+# Install Prometheus 
+
+```bash
+wget https://github.com/prometheus/prometheus/releases/download/v*/prometheus-*.*-amd64.tar.gz
+```
+
+```bash
+tar xvf prometheus-*.*-amd64.tar.gz
+```
+
+```bash
+cd prometheus-*.*
+```
+**Create a prometheus configuration file called "prometheus.yml in the same directory as the Prometheus binary with the following content. Please note you change your "job name" as your bucket ID and your IP to yhat of your device**
+
+global:
+  scrape_interval: 60s
+
+scrape_configs:
+  
+
+    job_name: 'bucket_ID'
+      scrape_interval: 10s
+      scrape_timeout: 5s
+      static_configs:
+        targets: ['192.168.1.201:9105']
+
+remote_write:
+  - url: '<https://prometheus-prod-13-prod-us-east-0.grafana.net/api/prom/push>'
+    basic_auth:
+      username: '1463871'
+      password: 'glc_eyJvIjoiMTA3MTQxOSIsIm4iOiJzdGFjay04NzU2NzItaG0tcmVhZC1kZWZsaS10b2tlbjEiLCJrIjoiTG9HMjF1dklIcDVTdDZTejE4ODdWYTUzIiwibSI6eyJyIjoicHJvZC11cy1lYXN0LTAifX0=' 
+
+
+
+
+
+
+
 # dump1090 Exporter
 
 [Dump1090](https://github.com/mutability/dump1090) is a simple Mode S decoder
