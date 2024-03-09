@@ -13,6 +13,7 @@ cd prometheus-*.*
 ```
 **Create a prometheus configuration file called "prometheus.yml in the same directory as the Prometheus binary with the following content. Please note you change your "job name" as your bucket ID and your IP to yhat of your device**
 
+```bash
 global:
   scrape_interval: 60s
 
@@ -31,7 +32,9 @@ remote_write:
       username: '1463871'
       password: 'glc_eyJvIjoiMTA3MTQxOSIsIm4iOiJzdGFjay04NzU2NzItaG0tcmVhZC1kZWZsaS10b2tlbjEiLCJrIjoiTG9HMjF1dklIcDVTdDZTejE4ODdWYTUzIiwibSI6eyJyIjoicHJvZC11cy1lYXN0LTAifX0=' 
 
+```
 
+Then move on to the dump1090 exporter
 
 
 
@@ -77,19 +80,12 @@ The dump1090exporter has also been packaged into a Docker container. See the
 ## Run
 
 The dump1090 exporter can be run from the command line using the console entry
-point script configured as part of the installation.
+point script configured as part of the installation. Change the IP Address, and lat / lon
 
-The dump1090 exporter accepts a number of command line arguments which can be
-displayed using the standard command line help request.
 
-```shell
-$ dump1090exporter -h
-```
-
-An example usage is shown below.
 
 ```shell
-$ dump1090exporter \
+dump1090exporter \
   --resource-path=http://192.168.1.201:8080/data \
   --port=9105 \
   --latitude=-34.9285 \
