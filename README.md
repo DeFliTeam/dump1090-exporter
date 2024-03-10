@@ -103,7 +103,7 @@ sudo systemctl enable prometheus
 sudo systemctl start prometheus
 ```
 ```bash
-sudo ufw allow 9090/tcp
+sudo ufw allow 9105/tcp
 ```
 
 Then move on to the dump1090 exporter
