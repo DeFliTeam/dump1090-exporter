@@ -324,20 +324,6 @@ By default only the *last1min* time period is exported as Prometheus can be
 used for accessing historical data.
 
 
-## Prometheus Configuration
-
-Prometheus needs to be told where to fetch the dump1090 metrics from. The
-Prometheus configuration file should be updated with a new entry under the
-'scrape_configs' block, that looks something like this:
-
-```yaml
-scrape_configs:
-  - job_name: 'dump1090'
-    scrape_interval: 10s
-    scrape_timeout: 5s
-    static_configs:
-      - targets: ['192.168.1.201:9105']
-```
 
 ## Visualisation
 
