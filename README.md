@@ -190,7 +190,7 @@ After=syslog.target network-online.target
 Type=simple
 ExecStart= dump1090exporter \
   --resource-path=http://192.168.1.201:8080/data \
-  --port=9090 \
+  --port=9105 \
   --latitude=-34.9285 \
   --longitude=138.6007 \
   --log-level info
