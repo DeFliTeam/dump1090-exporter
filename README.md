@@ -41,7 +41,7 @@ sudo chown -R prometheus:prometheus /var/lib/prometheus
 ```
 
 
-**Create a prometheus configuration file called "prometheus.yml in the same directory as the Prometheus binary with the following content. Please note you change your "job name" as your bucket ID and your IP to yhat of your device** 
+**Edit the prometheus configuration file in the following areas. Please note you change your "job name" as your bucket ID and your IP to that of your device** 
 
 ```bash
 sudo nano /etc/prometheus/prometheus.yml
